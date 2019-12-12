@@ -46,7 +46,7 @@ public class Product implements Serializable {
 	private String prodName;
 
 	@NotNull(message = "Please provide some price")
-	@Min(value = 100, message = "Minimum value should be greater than 100")
+	@Min(value = 50, message = "Minimum value should be greater than 100")
 	@Column(name = "price")
 	private double productPrice;
 
@@ -55,70 +55,6 @@ public class Product implements Serializable {
 
 	@Transient
 	private MultipartFile productImage;
-
-	public int getProductId() {
-		return prodId;
-	}
-
-	public String getProductCategory() {
-		return prodCategory;
-	}
-
-	public String getProductDescription() {
-		return prodDescription;
-	}
-
-	public String getProductManufacturer() {
-		return prodManufacturer;
-	}
-
-	public String getProductName() {
-		return prodName;
-	}
-
-	public double getProductPrice() {
-		return productPrice;
-	}
-
-	public String getUnitStock() {
-		return unitStock;
-	}
-
-	public void setProductId(int productId) {
-		this.prodId = productId;
-	}
-
-	public void setProductCategory(String productCategory) {
-		this.prodCategory = productCategory;
-	}
-
-	public void setProductDescription(String productDescription) {
-		this.prodDescription = productDescription;
-	}
-
-	public void setProductManufacturer(String productManufacturer) {
-		this.prodManufacturer = productManufacturer;
-	}
-
-	public void setProductName(String productName) {
-		this.prodName = productName;
-	}
-
-	public void setProductPrice(double productPrice) {
-		this.productPrice = productPrice;
-	}
-
-	public void setUnitStock(String unitStock) {
-		this.unitStock = unitStock;
-	}
-
-	public MultipartFile getProductImage() {
-		return productImage;
-	}
-
-	public void setProductImage(MultipartFile productImage) {
-		this.productImage = productImage;
-	}
 
 	// Constructors
 	public Product(int productId, String productCategory, String productDescription, String productManufacturer,
@@ -135,6 +71,70 @@ public class Product implements Serializable {
 
 	public Product() {
 
+	}
+
+	public int getProdId() {
+		return prodId;
+	}
+
+	public void setProdId(int prodId) {
+		this.prodId = prodId;
+	}
+
+	public String getProdCategory() {
+		return prodCategory;
+	}
+
+	public void setProdCategory(String prodCategory) {
+		this.prodCategory = prodCategory;
+	}
+
+	public String getProdDescription() {
+		return prodDescription;
+	}
+
+	public void setProdDescription(String prodDescription) {
+		this.prodDescription = prodDescription;
+	}
+
+	public String getProdManufacturer() {
+		return prodManufacturer;
+	}
+
+	public void setProdManufacturer(String prodManufacturer) {
+		this.prodManufacturer = prodManufacturer;
+	}
+
+	public String getProdName() {
+		return prodName;
+	}
+
+	public void setProdName(String prodName) {
+		this.prodName = prodName;
+	}
+
+	public double getProductPrice() {
+		return productPrice;
+	}
+
+	public void setProductPrice(double productPrice) {
+		this.productPrice = productPrice;
+	}
+
+	public String getUnitStock() {
+		return unitStock;
+	}
+
+	public void setUnitStock(String unitStock) {
+		this.unitStock = unitStock;
+	}
+
+	public MultipartFile getProductImage() {
+		return productImage;
+	}
+
+	public void setProductImage(MultipartFile productImage) {
+		this.productImage = productImage;
 	}
 
 }

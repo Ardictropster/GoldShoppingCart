@@ -12,16 +12,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Product Management</title>
 <link rel="icon" type="image/x-icon"
-	href="<c:url value="/resource/images/favicon1.png"/>" />
+	href="<c:url value="/resources/images/favicon1.png"/>" />
 <link rel="stylesheet"
-	href="<c:url value="../resource/bootstrap/css/bootstrap.min.css"/>">
-<script src="<c:url value="../resource/js/jquery.js"/>"></script>
-<script src="<c:url value="../resource/bootstrap/js/bootstrap.min.js"/>"></script>
+	href="<c:url value="../resources/bootstrap/css/bootstrap.min.css"/>">
+<script src="<c:url value="../resources/js/jquery.js"/>"></script>
+<script src="<c:url value="../resources/bootstrap/js/bootstrap.min.js"/>"></script>
 <link rel="stylesheet" type="text/css"
-	href="<c:url value="../resource/css/ProductList.css"/>">
+	href="<c:url value="../resources/css/ProductList.css"/>">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-<script src="<c:url value="../resource/js/productController.js"/>"></script>
+<script src="<c:url value="../resources/js/productController.js"/>"></script>
 </head>
 <body ng-app="myapp">
 	<div class="container" id="productTable"
@@ -52,14 +52,14 @@
 				<c:forEach items="${products}" var="prod">
 					<tr>
 						<td style="width: 171px"><img
-							src="<c:url value="/resource/images/products/${prod.productId}.jpg"/>"
+							src="<c:url value="/resources/images/products/${prod.prodId}.jpg"/>"
 							style="width: 100px; height: 90px;" ${prod.productName}"  /></td>
-						<td>${prod.productId}</td>
-						<td>${prod.productCategory}</td>
-						<td>${prod.productName}</td>
+						<td>${prod.prodId}</td>
+						<td>${prod.prodCategory}</td>
+						<td>${prod.prodName}</td>
 						<td>${prod.productPrice}</td>
 						<td>${prod.unitStock}</td>
-						<td style="width: 180px">${prod.productDescription}</td>
+						<td style="width: 180px">${prod.prodDescription}</td>
 						<td>${prod.productManufacturer}</td>
 						<td ng-controller="myController"><a
 							href="getProductById/${prod.productId}" class="btn btn-info"
@@ -67,15 +67,15 @@
 
 							<!-- 						view only for user --> <security:authorize
 								 access="hasAnyRole('ROLE_USER')">
-								<a href="#" ng-click="addToCart(${prod.productId})"
+								<a href="#" ng-click="addToCart(${prod.prodId})"
 									class="btn btn-primary" style="margin-left: 5px"> <span
 									class="glyphicon glyphicon-shopping-cart"></span></a>
 							</security:authorize> <!-- 						view only to the admin --> <security:authorize
 								access="hasAnyRole('ROLE_ADMIN')">
-								<a href="admin/product/editProduct/${prod.productId}"
+								<a href="admin/product/editProduct/${prod.prodId}"
 									class="btn btn-success" style="margin-left: 5px"> <span
 									class="glyphicon glyphicon-edit"></span></a>
-								<a href="admin/delete/${prod.productId}" class="btn btn-danger"
+								<a href="admin/delete/${prod.prodId}" class="btn btn-danger"
 									style="margin-left: 5px"> <span
 									class="glyphicon glyphicon-trash"></span></a>
 							</security:authorize></td>

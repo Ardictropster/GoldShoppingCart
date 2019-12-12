@@ -65,11 +65,11 @@
 						<fieldset>
 							<div class="form-group">
 								<input class="form-control" placeholder="E-mail"
-									name="j_username" type="email">
+									name="username" type="email">
 							</div>
 							<div class="form-group">
 								<input class="form-control" placeholder="Password"
-									name="j_password" type="password">
+									name="password" type="password" >
 							</div>
 							<div class="checkbox">
 								<c:if test="${not empty error}">

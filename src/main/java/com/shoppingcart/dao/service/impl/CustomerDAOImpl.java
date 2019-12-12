@@ -16,16 +16,17 @@ import com.shoppingcart.entities.Customer;
 @Repository
 @Transactional
 public class CustomerDAOImpl implements CustomerDAO {
-	
+
 	@Autowired
 	private SessionFactory sFactory;
 
+	@Override
 	public void addCustomer(Customer customer) {
 		Session session = sFactory.openSession();
-		//customer.getUsers().setEnabled(true);
+		// customer.getUsers().setEnabled(true);
 		Authorities auth = new Authorities();
 		auth.setAuthorities("ROLE_USER");
-		auth.setEmailId(customer.getUsers().getEmailId());
+		//auth.setEmailId(customer.getUsers().getEmailId());
 		Cart cart = new Cart();
 		customer.setCart(cart);
 		cart.setCustomer(customer);
@@ -35,12 +36,14 @@ public class CustomerDAOImpl implements CustomerDAO {
 		session.close();
 	}
 
+	@Override
 	public List<Customer> getAllCustomers() {
 		Session session = sFactory.openSession();
 		List<Customer> customers = session.createQuery("from Customer").list();
 		return customers;
 	}
 
+	@Override
 	public Customer getCustomerByemailId(String emailId) {
 		Session session = sFactory.openSession();
 		Customer customer = (Customer) session.createCriteria(Customer.class, emailId);

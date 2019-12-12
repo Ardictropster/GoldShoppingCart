@@ -86,7 +86,7 @@ public class CartItemController {
 		Product product = productService.getProductById(productId);
 		for (int i = 0; i < cartItems.size(); i++) {
 			CartItem cartItem = cartItems.get(i);
-			if (product.getProductId() == cartItem.getProduct().getProductId()) {
+			if (product.getProdId() == cartItem.getProduct().getProdId()) {
 				cartItem.setQuality(cartItem.getQuality() + 1);
 				cartItem.setPrice(cartItem.getQuality() * cartItem.getProduct().getProductPrice());
 				cartItemService.addCartItem(cartItem);

@@ -157,13 +157,28 @@
 			<version>2.3.3.RELEASE</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.0</version>
+		</dependency>
+
+
 	</dependencies>
 	<build>
 		<pluginManagement>
 			<plugins>
-				<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-war-plugin</artifactId> 
-					<version>2.3</version> <configuration> <warName>${name}</warName> <outputDirectory>D:\java\apache-tomcat-7.0.55\webapps</outputDirectory> 
-					</configuration> </plugin> -->
+				<!-- <plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>2.3</version>
+					<configuration>
+						<warName>MyShoppingCart</warName>
+						<outputDirectory>D:\java\apache-tomcat-7.0.55\webapps</outputDirectory>
+						<warSourceDirectory>WebContent</warSourceDirectory>
+						<failOnMissingWebXml>false</failOnMissingWebXml>
+					</configuration>
+				</plugin> -->
 
 
 				<plugin>

@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -60,10 +61,14 @@ public class HomePageController {
 			@RequestParam(value = "error", required = false) String error,
 			@RequestParam(value = "logout", required = false) String logout) throws IOException {
 		ModelAndView view = new ModelAndView();
-		//String username = request.getParameter("username");
-		//view.addObject("title", "Welcome " + username + "!! to your new path towards e-commerce world !!");
-		//view.addObject("message", "Start exploring the fun world of shopping !1");
-		view.setViewName("aboutUs");
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		if(StringUtils.equals(username, "test@amadeus.com") && StringUtils.equals(password, "amadeus") && StringUtils.isNotBlank(password)){
+			view.setViewName("aboutUs");
+		}else{
+			view.setViewName("login");
+		}
+		
 		return view;
 	}
 
