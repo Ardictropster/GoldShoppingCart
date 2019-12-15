@@ -37,7 +37,7 @@
 							</div>
 							<div class="col-sm-6 form-group">
 								<form:label path="prodName">Product Name</form:label>
-								 <form:input type="text" name="prodName"
+								 <form:input type="text" name="prodName" id="prodName"
 									placeholder="Enter Product Name.." class="form-control"
 									path="prodName"></form:input>
 								 <form:errors path="prodName"></form:errors>
@@ -45,41 +45,41 @@
 						</div>
 						<div class="form-group">
 						<form:label path="prodDescription">Product Description</form:label>
-								 <form:textarea type="text" name="prodDescription"
+								 <form:textarea type="text" name="prodDescription" id="prodDescription"
 									placeholder="Enter Product Description.." class="form-control"
 									path="prodDescription"></form:textarea>
 						</div>
 						<div class="form-group">
-						<form:label path="prodCategory" name="prodCategory">Product Category</form:label>
-								 <form:radiobutton path="prodCategory" value="Android"/>Electronics
-								 <form:radiobutton path="prodCategory" value="Windows"/>Household
-								 <form:radiobutton path="prodCategory" value="Linux"/>Groceries
-								 <form:radiobutton path="prodCategory" value="Mac"/>Others
+						<form:label path="prodCategory" name="prodCategory" id="prodCategory">Product Category</form:label>
+								 <form:radiobutton path="prodCategory" id="prodCategory" value="Electronics"/>Electronics
+								 <form:radiobutton path="prodCategory" id="prodCategory" value="Household"/>Household
+								 <form:radiobutton path="prodCategory" id="prodCategory" value="Groceries"/>Groceries
+								 <form:radiobutton path="prodCategory" id="prodCategory" value="Others"/>Others
 						</div>
 						<div class="row">
 							<div class="col-sm-4 form-group">
 								<form:label path="prodManufacturer">Product Manufacturer</form:label>
-								 <form:input type="text" name="prodManufacturer"
+								 <form:input type="text" name="prodManufacturer" id="prodManufacturer"
 									placeholder="Enter Product Manufacurer.." class="form-control"
 									path="prodManufacturer"></form:input>
 							</div>
 							<div class="col-sm-4 form-group">
 								<form:label path="productPrice">Product Price</form:label>
-								 <form:input type="text" name="productPrice"
+								 <form:input type="text" name="productPrice" id="productPrice"
 									placeholder="Enter Product Price.." class="form-control"
 									path="productPrice"></form:input>
 								 <form:errors path="productPrice"></form:errors>
 							</div>
 							<div class="col-sm-4 form-group">
 								<form:label path="unitStock">Number of Products</form:label>
-								 <form:input type="text" name="unitStock"
+								 <form:input type="text" name="unitStock" id="unitStock"
 									placeholder="Number of Products.." class="form-control"
 									path="unitStock"></form:input>
 							</div>
 						</div>
 					 	<div class="form-group">
 						<form:label path="productImage">Product Image</form:label>
-							<form:input type="file" path="productImage" name="productImage"/>
+							<form:input type="file" path="productImage" name="productImage" id="productImage"/>
 						</div>  
 						<div class="form-actions">
 							<button type="submit" class="btn btn-lg btn-info">Submit</button>
