@@ -26,7 +26,7 @@
 <body ng-app="myapp">
 	<div class="container" id="productTable"
 		style="width: 1145px; margin-bottom: 180px;">
-		<h2>Product Management</h2>
+		<h2>List of available jewelleries</h2>
 		<p>The List of Products in our Database</p>
 		<table class="table table-hover" id="productList">
 			<thead>
@@ -39,30 +39,28 @@
 					<th>Stock Unit</th>
 					<th>Description</th>
 					<th>Manufacturer</th>
-					<th>View <security:authorize access="hasAnyRole('ROLE_USER')">
-					/ Add to Cart
-					</security:authorize> <!-- 					views only to the admin --> <security:authorize
-							 access="hasAnyRole('ROLE_ADMIN')">
-					/Edit/Delete
+					<th>View <security:authorize access="hasAnyRole('ROLE_USER')">/ Add to Cart
+					</security:authorize> <security:authorize
+							 access="hasAnyRole('ROLE_ADMIN')">/Edit/Delete
 					</security:authorize>
 					</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${products}" var="prod">
+				<c:forEach items="${prodList}" var="prod">
 					<tr>
 						<td style="width: 171px"><img
 							src="<c:url value="/resources/images/products/${prod.prodId}.jpg"/>"
-							style="width: 100px; height: 90px;" ${prod.productName}"  /></td>
+							style="width: 100px; height: 90px;" ${prod.prodName}"  /></td>
 						<td>${prod.prodId}</td>
 						<td>${prod.prodCategory}</td>
 						<td>${prod.prodName}</td>
 						<td>${prod.productPrice}</td>
 						<td>${prod.unitStock}</td>
 						<td style="width: 180px">${prod.prodDescription}</td>
-						<td>${prod.productManufacturer}</td>
+						<td>${prod.prodManufacturer}</td>
 						<td ng-controller="myController"><a
-							href="getProductById/${prod.productId}" class="btn btn-info"
+							href="getProductById/${prod.prodId}" class="btn btn-info"
 							role="button"> <span class="glyphicon glyphicon-info-sign"></span></a>
 
 							<!-- 						view only for user --> <security:authorize
@@ -70,7 +68,7 @@
 								<a href="#" ng-click="addToCart(${prod.prodId})"
 									class="btn btn-primary" style="margin-left: 5px"> <span
 									class="glyphicon glyphicon-shopping-cart"></span></a>
-							</security:authorize> <!-- 						view only to the admin --> <security:authorize
+							</security:authorize><security:authorize
 								access="hasAnyRole('ROLE_ADMIN')">
 								<a href="admin/product/editProduct/${prod.prodId}"
 									class="btn btn-success" style="margin-left: 5px"> <span

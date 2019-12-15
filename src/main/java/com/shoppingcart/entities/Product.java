@@ -46,7 +46,7 @@ public class Product implements Serializable {
 	private String prodName;
 
 	@NotNull(message = "Please provide some price")
-	@Min(value = 50, message = "Minimum value should be greater than 100")
+	@Min(value = 50, message = "Minimum value should be greater than 50")
 	@Column(name = "price")
 	private double productPrice;
 

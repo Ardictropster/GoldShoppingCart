@@ -13,13 +13,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartResolver;
@@ -50,12 +48,12 @@ public class ProductController {
 		this.productService = productService;
 	}
 
-	@Bean
+	/*@Bean
 	public MultipartResolver multiPartResolver() {
 		CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
 		multipartResolver.setMaxUploadSize(10240000);
 		return multipartResolver;
-	}
+	}*/
 
 	@RequestMapping(value = "/getAllProducts")
 	public ModelAndView getAppProducts() {
@@ -92,16 +90,16 @@ public class ProductController {
 	}
 
 	@RequestMapping(value = "/admin/product/addProduct", method = RequestMethod.POST)
-	public String addProduct(@Valid @ModelAttribute("product") Product product, BindingResult result, Model model) {
-		model.addAttribute("product", product);
-		if (result.hasErrors()){
+	 public String addProduct(@ModelAttribute("product") @Valid Product product, BindingResult result, Model model) {
+		if (result.hasErrors()) {
 			return "addProduct";
 		}
+		 
 		productService.addProduct(product);
 		MultipartFile image = product.getProductImage();
 		if (image != null && !image.isEmpty()) {
 			Path path = Paths
-					.get("C:/Users/Ismail/workspace/ShoppingCart/src/main/webapp/WEB-INF/resource/images/products/"
+					.get("D:/java/workspace/ShoppingCart/MyShoppingCart/src/main/webapp/resources/images/products"
 							+ product.getProdId() + ".jpg");
 
 			try {
@@ -137,7 +135,7 @@ public class ProductController {
 	public String getProducts() {
 		return "productListAngular";
 	}
-	
+
 	@ModelAttribute("product")
 	public Product loadEmptyBeanModel() {
 		return new Product();
